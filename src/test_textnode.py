@@ -1,6 +1,5 @@
 import unittest
 from textnode import TextNode, TextType
-import textnode
 
 
 class TestTextNode(unittest.TestCase):
