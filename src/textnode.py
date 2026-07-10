@@ -12,12 +12,14 @@ class TextType(Enum):
 
 
 class TextNode:
-    def __init__(self, content: str, text_type: str, url: str | None = None):
+    def __init__(self, content: str, text_type: TextType, url: str | None = None):
         self.text = content
         self.text_type = TextType(text_type)
         self.url = url
 
-    def __eq__(self, other: TextNode):
+    def __eq__(self, other: object):
+        if not isinstance(other, TextNode):
+            return False
         return (
             self.text == other.text
             and self.text_type == other.text_type
